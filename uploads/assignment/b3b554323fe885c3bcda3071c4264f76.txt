@@ -1,0 +1,21 @@
+EFS Electrical
+1.	Worked in a live Datacentre at TCL Andheri
+2.	Traced whole electrical line diagram of whole building
+3.	Used to maintain regular updates of readings from PAC, HT-Panels, Lt-panels and Generators.
+4.	Used to inspect the Datacentre  and live servers periodically 
+5.	Trouble shooted electrical problems 
+6.	Dissembled  440 to 220 kva Transformer for checking leakage with team
+
+
+
+
+Accunity
+
+1. Designed and build advanced Android applications while Collaborating with cross-functional teams to define, design, and ship new features.
+2. Worked with outside data sources and API’s
+3. Worked on location, Google+ and Facebook API's for two-way authentication.
+4. Worked on SQL-Lite, Bar-code Scanner, Face Detection, Geo-fencing and geo-locations…
+5. Worked on google Ad-sense to display ad’s in application. 
+6. Worked on external libraries like Picasso, Volley, SugarOrm... etc.
+7. Worked on bug fixing and improving application performance.
+8. Continuously discovered, evaluate, and implemented new technologies to maximize development efficiency by using external libraries.

@@ -105,7 +105,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE'] == 1) || Stdlib_Array::multiSearch($
                                 $sqllmsTrans  = $dblms->querylms("SELECT transport_fee
                                                                     FROM ".STUDENTS."
                                                                      WHERE std_id = '".$rowsvalues['id_std']."'
-                                                                     AND f.id_campus = '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."' LIMIT 1");
+                                                                     AND id_campus = '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."' LIMIT 1");
                                 $valTransport = mysqli_fetch_array($sqllmsTrans);
 
                                 // Fee STructure

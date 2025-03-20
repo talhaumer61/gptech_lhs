@@ -19,6 +19,8 @@ echo '
 					<th class="center" width=50px>#</th>
 					<th>Student Regno.</th>
 					<th>Student</th>
+					<th>Father Name</th>
+					<th>Amount </th>
 					<th>Class </th>
 					<th>Category</th>
 					<th>Session </th>
@@ -27,17 +29,18 @@ echo '
 				</tr>
 			</thead>
 			<tbody>';
-				$sqllms	= $dblms->querylms("SELECT s.id, s.status, s.percent, s.amount, s.note,
+				$sqllms	= $dblms->querylms("SELECT s.id, s.status, s.percent, cd.amount, s.note,
 													c.cat_id, c.cat_name, c.cat_type,
 													st.std_id, st.std_name, st.std_fathername, st.std_regno,
 													cl.class_name, se.session_name
 													FROM ".SCHOLARSHIP." s
 													INNER JOIN ".SCHOLARSHIP_CAT." c ON c.cat_id = s.id_cat
+													INNER JOIN ".CONCESSION_DETAIL." cd ON cd.id_setup = s.id
 													INNER JOIN ".STUDENTS." st ON st.std_id = s.id_std
 													INNER JOIN ".CLASSES." cl ON cl.class_id = s.id_class
 													INNER JOIN ".SESSIONS." se ON se.session_id = s.id_session
 													WHERE s.id_campus = '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."' 
-													AND s.id_type = '2' AND c.cat_type = '2'
+													AND s.id_type = '2' AND c.cat_type = '2' AND s.is_deleted = 0
 													ORDER BY s.id ASC");
 				$srno = 0;
 				while($rowsvalues = mysqli_fetch_array($sqllms)) {
@@ -46,7 +49,9 @@ echo '
 					<tr>
 						<td class="center">'.$srno.'</td>
 						<td>'.$rowsvalues['std_regno'].'</td>
-						<td>'.$rowsvalues['std_name'].' '.$rowsvalues['std_fathername'].'</td>
+						<td>'.$rowsvalues['std_name'].'</td>
+						<td>'.$rowsvalues['std_fathername'].'</td>
+						<td>'.$rowsvalues['amount'].'</td>
 						<td>'.$rowsvalues['class_name'].'</td>
 						<td>'.$rowsvalues['cat_name'].'</td>
 						<td>'.$rowsvalues['session_name'].'</td>
@@ -56,7 +61,7 @@ echo '
 							echo'<a href="feeconcession.php?id='.$rowsvalues['id'].'" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i></a>';
 						}
 						if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || ($_SESSION['userlogininfo']['LOGINTYPE']  == 2) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '38', 'deleted' => '1'))){ 
-							echo'<a href="#" class="btn btn-danger btn-xs ml-xs" onclick="confirm_modal(\'notice.php?deleteid='.$rowsvalues['id'].'\');"><i class="el el-trash"></i></a>';
+							echo'<a href="#" class="btn btn-danger btn-xs ml-xs" onclick="confirm_modal(\'feeconcession.php?deleteid='.$rowsvalues['id'].'\');"><i class="el el-trash"></i></a>';
 						}
 						echo'
 						</td>

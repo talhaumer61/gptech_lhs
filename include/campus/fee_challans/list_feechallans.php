@@ -169,14 +169,27 @@ echo '
 				</div>
 			</div>
 		</form>';
-		$sql = "SELECT f.id, f.status, f.id_month, f.challan_no, f.issue_date, f.due_date, f.scholarship, f.concession, f.fine, f.prev_remaining_amount, f.total_amount, f.remaining_amount,
-				c.class_name, cs.section_name, s.session_name, st.std_id, st.std_name
+		$sql = "SELECT DISTINCT
+				f.id, f.status, f.id_month, f.challan_no, f.issue_date, f.due_date, 
+				f.scholarship, f.concession, f.fine, f.prev_remaining_amount, 
+				f.total_amount,fd.amount, f.remaining_amount, 
+				c.class_name, cs.section_name, s.session_name, 
+				st.std_id, st.std_name
 				FROM ".FEES." f				   
 				INNER JOIN ".CLASSES." c ON c.class_id = f.id_class	 
-				INNER JOIN ".STUDENTS." st ON st.std_id  = f.id_std
+				INNER JOIN ".STUDENTS." st ON st.std_id = f.id_std
 				LEFT JOIN ".CLASS_SECTIONS." cs ON cs.section_id = st.id_section							 
-				INNER JOIN ".SESSIONS." s ON s.session_id = f.id_session							 
-				
+				INNER JOIN ".SESSIONS." s ON s.session_id = f.id_session	
+
+				-- Joining Fee Setup based on matching class, section, session, and campus
+				INNER JOIN ".FEESETUP." fs ON fs.id_class = f.id_class 
+					AND fs.id_section = st.id_section 
+					AND fs.id_session = f.id_session
+					AND fs.id_campus = f.id_campus
+
+				-- Joining Fee Setup Detail on fee setup ID
+				INNER JOIN ".FEESETUPDETAIL." fd ON fd.id_setup = fs.id
+
 				WHERE f.is_deleted != '1' 
 				$sqlStatus 
 				$sqlClass 
@@ -213,6 +226,7 @@ echo '
 						<th>Session</th>
 						<th>Class</th>
 						<th>Student</th>
+						<th>Total</th> 
 						<th>Discount</th> 
 						<th>Fine</th>
 						<th>Pre. Balance</th>
@@ -241,6 +255,7 @@ echo '
 							<td>'.$rowsvalues['session_name'].'</td>
 							<td>'.$rowsvalues['class_name'].' ('.$rowsvalues['section_name'].')</td>
 							<td>'.$rowsvalues['std_name'].'</td>
+							<td>'.$rowsvalues['amount'].'</td>
 							<td>'.number_format(round($concession)).'</td>
 							<td>'.number_format(round($rowsvalues['fine'])).'</td>
 							<td>'.number_format(round($rowsvalues['prev_remaining_amount'])).'</td>

@@ -342,4 +342,50 @@ if(isset($_POST['changes_feeconcession'])) {
 			exit();
 	}
 }
+
+//---------------- Delete reocrd----------------------
+if(isset($_GET['deleteid'])) { 
+	//------------------------------------------------
+	$sqllms  = $dblms->querylms("UPDATE ".SCHOLARSHIP." SET  
+													is_deleted			= '1'
+												, id_deleted			= '".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'
+												, ip_deleted			= '".$ip."'
+												, date_deleted			= NOW()
+												WHERE id 			= '".cleanvars($_GET['deleteid'])."'");
+	//--------------------------------------
+		if($sqllms)
+		{ 
+			//--------------------------------------
+			$remarks = 'Fee Challan Deleted ID: "'.cleanvars($_GET['deleteid']).'" details';
+			$sqllmslog  = $dblms->querylms("INSERT INTO ".LOGS." (
+																id_user										, 
+																filename									, 
+																action										,
+																dated										,
+																ip											,
+																remarks										, 
+																id_campus				
+															  )
+			
+														VALUES(
+																'".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'	,
+																'".strstr(basename($_SERVER['REQUEST_URI']), '.php', true)."' , 
+																'3'											, 
+																NOW()										,
+																'".cleanvars($ip)."'						,
+																'".cleanvars($remarks)."'						,
+																'".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."'			
+															  )
+										");
+			//--------------------------------------
+			$_SESSION['msg']['title'] 	= 'Warning';
+			$_SESSION['msg']['text'] 	= 'Record Successfully Deleted.';
+			$_SESSION['msg']['type'] 	= 'warning';
+			header("Location: fee_challans.php", true, 301);
+			exit();
+			//--------------------------------------
+		}
+	//--------------------------------------
+}
+
 ?>

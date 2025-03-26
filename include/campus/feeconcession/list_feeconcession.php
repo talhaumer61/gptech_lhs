@@ -40,7 +40,7 @@ echo '
 													INNER JOIN ".CLASSES." cl ON cl.class_id = s.id_class
 													INNER JOIN ".SESSIONS." se ON se.session_id = s.id_session
 													WHERE s.id_campus = '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."' 
-													AND s.id_type = '2' AND c.cat_type = '2' AND s.is_deleted = 0
+													AND s.id_session = '".$_SESSION['userlogininfo']['ACADEMICSESSION']."' AND s.id_type = '2' AND c.cat_type = '2' AND s.is_deleted = 0
 													ORDER BY s.id ASC");
 				$srno = 0;
 				while($rowsvalues = mysqli_fetch_array($sqllms)) {

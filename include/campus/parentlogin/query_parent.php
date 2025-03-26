@@ -1,6 +1,7 @@
 <?php 
 //PARENT LOGIN CREATE
 if(isset($_POST['submit_parent'])) { 
+	// echo'<pre>';print_r($_POST);exit;
 	$sqllmscheck  = $dblms->querylms("SELECT adm_username 
 										FROM ".ADMINS." 
 										WHERE adm_username = '".cleanvars($_POST['adm_username'])."' AND is_deleted = '0'
@@ -35,7 +36,7 @@ if(isset($_POST['submit_parent'])) {
 														)
 													VALUES(
 															 '".cleanvars($_POST['adm_status'])."'		 
-															,'5'											
+															,'4'											
 															,'".cleanvars($_POST['adm_username'])."'		
 															,'".cleanvars($salt)."'						
 															,'".cleanvars($password)."'					
@@ -51,7 +52,7 @@ if(isset($_POST['submit_parent'])) {
 		//-------------------------- Add Roles ----------------------
 		if($sqllms) { 
 			$sqllmsemply  = $dblms->querylms("UPDATE ".STUDENTS." SET id_loginid = '".(cleanvars($adm_id))."' 
-													WHERE std_id = '".cleanvars($_POST['id_std'])."'");
+													WHERE std_fathercnic = '".cleanvars($_POST['std_fathercnic'])."'");
 			unset($sqllmsemply);
 			$remarks = 'Add Parent Login: "'.cleanvars($_POST['adm_username']).'"';
 			$sqllmslog  = $dblms->querylms("INSERT INTO ".LOGS." (

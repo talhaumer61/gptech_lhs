@@ -10,33 +10,28 @@ echo '
 			</header>
 			<div class="panel-body">
 				<div class="form-group mb-md">
-					<label class="col-md-3 control-label">Class <span class="required">*</span></label>
+					<label class="col-md-3 control-label">Family No <span class="required">(Father CNIC)*</span></label>
 					<div class="col-md-9">
-						<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%"  name="id_class" name="id_class" onchange="get_classstudent(this.value)">
+						<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%"  name="std_fathercnic" onchange="get_classstudent(this.value)">
 							<option value="">Select</option>';
-							$sqllmsclass	= $dblms->querylms("SELECT class_id, class_name 
-																	FROM ".CLASSES." 
-																	WHERE class_status = '1' ORDER BY class_id ASC");
-							while($value_class 	= mysqli_fetch_array($sqllmsclass)) {
-							echo '<option value="'.$value_class['class_id'].'">'.$value_class['class_name'].'</option>';
+							$sqllmsclass	= $dblms->querylms("SELECT DISTINCT std_fathercnic 
+																FROM ".STUDENTS." 
+																WHERE std_status = '1' 
+																AND is_deleted = '0' 
+																AND std_fathercnic IS NOT NULL 
+																AND std_fathercnic <> '' 
+																ORDER BY std_fathercnic ASC;
+															");
+							while($value_std 	= mysqli_fetch_array($sqllmsclass)) {
+							echo '<option value="'.$value_std['std_fathercnic'].'">'.$value_std['std_fathercnic'].'</option>';
 							}
 							echo '
 						</select>
 					</div>
 				</div>
-				<div class="form-group mb-md">
-					<label class="col-md-3 control-label">Student Name <span class="required">*</span></label>
-					<div class="col-md-9">
-						<div id="getclassstudent">
-							<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%"  name="id_std" name="id_std">
-								<option value="">Select</option>
-							</select>
-						</div>
-					</div>
-				</div>
 				<div id="getparentdetail">
 				<div class="form-group mt-sm">
-					<label class="col-md-3 control-label"> Full Name <span class="required">*</span></label>
+					<label class="col-md-3 control-label"> Father Name <span class="required">*</span></label>
 					<div class="col-md-9">
 						<input type="text" class="form-control" id="adm_fullname" name="adm_fullname" required title="Must Be Required"/>
 					</div>

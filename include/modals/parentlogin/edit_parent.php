@@ -27,15 +27,15 @@ echo '
 		</header>
 		<div class="panel-body">
 			<div class="form-group mb-md">
-				<label class="col-md-3 control-label">Student Name</label>
+				<label class="col-md-3 control-label">Father CNIC</label>
 				<div class="col-md-9">
-					<select class="form-control" data-width="100%" name="id_std" name="id_std" readonly>';
-						$sqllmsstudent	= $dblms->querylms("SELECT std_id, std_name 
+					<select class="form-control" data-width="100%" name="std_fathercnic" readonly>';
+						$sqllmsstudent	= $dblms->querylms("SELECT std_id, std_name, std_fathercnic 
 																FROM ".STUDENTS." 
 																WHERE std_status = '1' AND id_loginid = '".$rowsvalues['adm_id']."' 
 																AND id_campus = '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."'");
 						$value_stu 	= mysqli_fetch_array($sqllmsstudent);
-						echo '<option value="'.$value_stu['std_id'].'" selected>'.$value_stu['std_name'].'</option>
+						echo '<option value="'.$value_stu['std_fathercnic'].'" selected>'.$value_stu['std_fathercnic'].'</option>
 					</select>
 				</div>
 			</div>

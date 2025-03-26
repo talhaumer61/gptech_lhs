@@ -14,8 +14,6 @@ echo '
 					<th class="center">#</th>
 					<th style="width: 40px;">Photo</th>
 					<th>Full Name</th>
-					<th>Class</th>
-					<th>Section</th>
 					<th>Parent Contact</th> 
 					<th>Username</th>
 					<th width="70px;" class="center">Status</th>
@@ -23,13 +21,15 @@ echo '
 				</tr>
 			</thead>
 			<tbody>';
-				$sqllms	= $dblms->querylms("SELECT a.adm_id, a.adm_status, a.adm_username, a.adm_fullname, a.adm_email, a.adm_phone, a.adm_photo, s.std_photo, c.class_name, se.section_name
-												FROM ".ADMINS." a
-												INNER JOIN ".STUDENTS."  	  s  ON s.id_loginid 	= a.adm_id
-												LEFT JOIN ".CLASSES."   	  c  ON c.class_id 		= s.id_class
-												LEFT JOIN ".CLASS_SECTIONS."  se  ON se.section_id 	= s.id_section
-												WHERE a.adm_logintype = '5' AND a.id_campus = '".$_SESSION['userlogininfo']['LOGINCAMPUS']."'  AND a.is_deleted = '0'
-												ORDER BY a.adm_username ASC");
+				$sqllms	= $dblms->querylms("SELECT a.adm_id, a.adm_status, a.adm_username, a.adm_fullname, 
+												a.adm_email, a.adm_phone, a.adm_photo, MAX(s.std_photo) AS std_photo
+											FROM sms_admins a 
+											INNER JOIN sms_students s ON s.id_loginid = a.adm_id 
+											WHERE a.adm_logintype = '4' 
+											AND a.id_campus = '85' 
+											AND a.is_deleted = '0' 
+											GROUP BY a.adm_id
+											ORDER BY a.adm_username ASC");
 				$srno = 0;
 				while($rowsvalues = mysqli_fetch_array($sqllms)) {
 					$srno++;
@@ -46,8 +46,6 @@ echo '
 						<td class="center">'.$srno.'</td>
 						<td><img src="'.$photo.'" style="width:40px; height:40px;"></td>
 						<td>'.$rowsvalues['adm_fullname'].'</td>
-						<td>'.$rowsvalues['class_name'].'</td>
-						<td>'.$rowsvalues['section_name'].'</td>
 						<td>'.$rowsvalues['adm_phone'].'</td>
 						<td>'.$rowsvalues['adm_username'].'</td>
 						<td class="center">'.get_status($rowsvalues['adm_status']).'</td>

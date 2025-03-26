@@ -60,20 +60,19 @@ a:hover{
 <!-- INCLUDEING PAGE -->
 <div class="row">';
 //-----------------------------------------------------
-$sqllmsdetail	= $dblms->querylms("SELECT g.guardian_relation, s.std_id, s.std_name, s.std_fathername, s.std_photo, c.class_name, cs.section_name
-                                        FROM ".GUARDIANS." g 
-                                        INNER JOIN ".STUDENTS." 	  s  ON s.id_guardian = g.guardian_id
+$sqllmsdetail	= $dblms->querylms("SELECT  s.std_id, s.std_name, s.std_fathername, s.std_photo, c.class_name, cs.section_name
+                                        FROM ".STUDENTS." s 
                                         INNER JOIN ".CLASSES."  	  c  ON c.class_id	  = s.id_class
                                         INNER JOIN ".CLASS_SECTIONS." cs ON cs.section_id = s.id_section
-                                        WHERE g.id_campus = '".$_SESSION['userlogininfo']['LOGINCAMPUS']."' AND g.guardian_status = '1' 
-										AND g.id_loginid = '".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'
+                                        WHERE s.id_campus = '".$_SESSION['userlogininfo']['LOGINCAMPUS']."' AND s.std_status = '1' 
+										AND s.id_loginid = '".cleanvars($_SESSION['userlogininfo']['LOGINIDA'])."'
                                         ORDER BY c.class_name ASC");
 $srno = 0;
 //-----------------------------------------------------
 while($value_detail = mysqli_fetch_array($sqllmsdetail)) {
 
 if($value_detail['std_photo']){
-	$photo = '<img class="image" src="uploads/images/employees/'.$value_detail['std_photo'].'"/>';
+	$photo = '<img class="image" src="uploads/images/students/'.$value_detail['std_photo'].'"/>';
 }
 else{
 	$photo = '<img class="image" src="uploads/images/employees/default.jpg"/>';
@@ -86,17 +85,13 @@ echo'
 			<header class="panel-heading">
 				<center>
 					<p>'.$photo.'</p>
-					<h4 class="text text-primary">'.$value_detail['std_name'].' '.$value_detail['std_fathername'].'</h4>
+					<h4 class="text text-primary">'.$value_detail['std_name'].'</h4>
 				</center>
 			</header>
 		
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-striped table-condensed mb-none">
-						<tr>
-							<td class="text text-primary"><i class="fa fa-check"></i> Realtion</td>
-							<td align="right">'.$value_detail['guardian_relation'].'</td>
-						</tr>
 						<tr>
 							<td class="text text-primary"><i class="fa fa-check"></i> Class</td>
 							<td align="right">'.$value_detail['class_name'].'</td>
@@ -149,7 +144,7 @@ echo '
 <div class="col-md-4 col-lg-4 col-xl-3">
 <section class="panel panel-featured panel-featured-primary" >
 <header class="panel-heading bg-primary">
-    <a href="subject.php?id='.$value_detail['subject_id'].'">
+    <a href="subject.php?id='.$value_detail['subject_id'].'&std='.$_GET['std'].'">
             <p class="text-weight-semibold mt-none text-center" style="font-size: 24px; color:#ffffff;" >'.$value_detail['subject_code'].' - '.$value_detail['subject_name'].'</p>
     </a>
 </header>

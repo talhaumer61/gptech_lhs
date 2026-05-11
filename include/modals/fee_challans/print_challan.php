@@ -15,8 +15,7 @@ echo'
 							<option value="">Select</option>';
 							$sqllmsSession = $dblms->querylms("SELECT session_id, session_status, session_name 
 																FROM ".SESSIONS."
-																WHERE session_status	= '1'
-																AND is_deleted			= '0'
+																WHERE is_deleted			= '0'
 																ORDER BY session_id ASC");
 							while($valueSession = mysqli_fetch_array($sqllmsSession)) {
 								echo'<option value="'.$valueSession['session_id'].'" '.($valueSession['session_id']==$_SESSION['userlogininfo']['ACADEMICSESSION'] ? 'selected' : '').'>'.$valueSession['session_name'].'</option>';

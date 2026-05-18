@@ -17,7 +17,7 @@ echo'
 	</header>
     <div class="row">';
 		include "dashboard/modal.php";
-		include "dashboard/button_links.php";
+		// include "dashboard/button_links.php";	
 		include "dashboard/main_counter.php";
 		// include "dashboard/list_today_birthday.php";
 		include "dashboard/event_calendar.php";

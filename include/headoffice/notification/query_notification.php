@@ -30,6 +30,7 @@ if(isset($_POST['to_student'])){ $student = '1';}else{ $student = '2';}
 	$sqllms  = $dblms->querylms("INSERT INTO ".NOTIFICATIONS."(
 														not_status					, 
 														id_type						,
+														info_type					,
 														not_title					,	
 														dated						,
 														not_description				,
@@ -45,6 +46,7 @@ if(isset($_POST['to_student'])){ $student = '1';}else{ $student = '2';}
 	   											VALUES(
 														'".cleanvars($_POST['not_status'])."'							, 
 														'".cleanvars($_POST['id_type'])."'								, 
+														'".cleanvars($_POST['info_type'])."'								, 
 														'".cleanvars($_POST['not_title'])."'							,
 														'".cleanvars($dated)."'											,
 														'".cleanvars($_POST['not_description'])."'						,
@@ -109,6 +111,7 @@ if(isset($_POST['to_student'])){ $student = '1';}else{ $student = '2';}
 $sqllms  = $dblms->querylms("UPDATE ".NOTIFICATIONS." SET  
 													not_status		= '".cleanvars($_POST['not_status'])."'
 												  ,	id_type			= '".cleanvars($_POST['id_type'])."'
+												  ,	info_type			= '".cleanvars($_POST['info_type'])."'
 												  , not_title		= '".cleanvars($_POST['not_title'])."' 
 												  , dated			= '".cleanvars($dated)."' 
 												  , not_description	= '".cleanvars($_POST['not_description'])."'

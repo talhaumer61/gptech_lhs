@@ -9,7 +9,7 @@
 //---------------------------------------------------------
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '78', 'edit' => '1'))){
 //---------------------------------------------------------
-	$sqllms	= $dblms->querylms("SELECT  not_id, not_status, id_type, not_title, dated, not_description, id_session, to_campus, to_staff, to_parent, to_student
+	$sqllms	= $dblms->querylms("SELECT  not_id, not_status, id_type, info_type, not_title, dated, not_description, id_session, to_campus, to_staff, to_parent, to_student
 										FROM ".NOTIFICATIONS." 
 										WHERE id_campus = '".$_SESSION['userlogininfo']['LOGINCAMPUS']."' 
 										AND is_deleted != '1' AND not_id = '".cleanvars($_GET['id'])."' 
@@ -72,6 +72,23 @@ echo '
 					<div class="checkbox-custom checkbox-inline">
 						<input type="checkbox" id="to_student" name="to_student"'; if($rowsvalues['to_student'] == 1){echo'checked';}echo'>
 						<label for=checkboxExample2">Student</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Info Type <span class="required">*</span></label>
+				<div class="col-md-9">
+					<div class="radio-custom radio-inline">
+						<input type="radio" id="info_type" name="info_type" value="1" '.( ( $rowsvalues['info_type'] == 1 )? "checked" : "" ).'>
+						<label for="radioExample1">Urgent</label>
+					</div>
+					<div class="radio-custom radio-inline">
+						<input type="radio" id="info_type" name="info_type" value="2" '.( ( $rowsvalues['info_type'] == 2 )? "checked" : "" ).'>
+						<label for="radioExample2">Pending</label>
+					</div>
+					<div class="radio-custom radio-inline">
+						<input type="radio" id="info_type" name="info_type" value="3" '.( ( $rowsvalues['info_type'] == 3 )? "checked" : "" ).'>
+						<label for="radioExample2">Info</label>
 					</div>
 				</div>
 			</div>

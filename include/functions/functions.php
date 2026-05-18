@@ -1,14 +1,29 @@
 <?php 
 function get_scheme_type($id = "") {
 	$scheme_type= array (
-							  '1' => 'Monthly Assessment-1'
-							, '2' => 'Monthly Assessment-2'
-							, '3' => 'Monthly Assessment-3'
-							, '4' => 'Term Assessment'
-							, '5' => 'Term Paper'
+							  '1' => 'Monthly Test 1'
+							, '2' => 'Monthly Test 2'
+							, '3' => 'Monthly Test 3'
+							, '4' => 'Monthly Test 4'
+							, '5' => 'Monthly Test 5'
+							, '6' => 'Monthly Test 6'
+							, '7' => 'First Mid Term Examination'
+							, '8' => 'Second Mid Term Examination'
+							, '9' => 'First Term Examination'
+							, '10' => 'Final Term Examination'
 						);
 	return (!empty($id)? $scheme_type[$id]: $scheme_type);
 }
+// function get_scheme_type($id = "") {
+// 	$scheme_type= array (
+// 							  '1' => 'Monthly Assessment-1'
+// 							, '2' => 'Monthly Assessment-2'
+// 							, '3' => 'Monthly Assessment-3'
+// 							, '4' => 'Term Assessment'
+// 							, '5' => 'Term Paper'
+// 						);
+// 	return (!empty($id)? $scheme_type[$id]: $scheme_type);
+// }
 //--------------- Status ------------------
 $admstatus = array (
 						array('id'=>1, 'name'=>'Active')		, array('id'=>2, 'name'=>'Inactive')

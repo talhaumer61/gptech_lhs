@@ -54,7 +54,7 @@ echo '
 					<div class="col-md-9">
 						<select class="form-control" required title="Must Be Required" data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" id="id_week" name="id_week">
 							<option value="">Select</option>';
-								for($i=1; $i<=15; $i++) {
+								for($i=1; $i<=30; $i++) {
 									echo '<option value="'.$i.'">Week '.$i.'</option>';
 								}
 								echo '

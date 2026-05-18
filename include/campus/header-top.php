@@ -29,7 +29,7 @@
 
 			<span class="separator"></span>
 
-			<div class="userbox">
+			<div class="userbox" style="margin: 0 0 0 12px;">
 				<a href="'.HOST_URL.'?token='.$dataJSON.'" style="background-color: #cb3f44; border: 2px solid #ffffff; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); overflow: hidden;">
 					<div class="profile-info" style="text-align: center; position: relative; z-index: 2;">
 						<span class="name" style="font-size: 22px; color: white; display: block; font-weight: bold;">✨ MSD Portal ✨</span>
@@ -75,7 +75,7 @@
 						</div>
 						<div class="content">
 							<ul>';
-								$sqllms	= $dblms->querylms("SELECT not_id, not_title, dated, not_description
+								$sqllms	= $dblms->querylms("SELECT not_id, not_title, info_type, dated, not_description
 																FROM ".NOTIFICATIONS." 
 																WHERE not_status = '1' AND id_type = '2' AND to_campus = '1' AND is_deleted != '1'
 																AND id_campus IN (0, '".cleanvars($_SESSION['userlogininfo']['LOGINCAMPUS'])."')
@@ -83,18 +83,26 @@
 																
 								$count = 0;
 								while($rowsvalues = mysqli_fetch_array($sqllms)) {
+									$color = '';
+									if($rowsvalues['info_type'] == 1) {
+										$color = 'background-color: #ff0000; color:white; border-radius:5px;';
+									} elseif($rowsvalues['info_type'] == 2) {
+										$color = 'background-color: #ffff00; color: black; border-radius:5px;';
+									} else {
+										$color = 'background-color: #6666f3; color: black; border-radius:5px;';
+									}
 									$count++;
 									echo'	
-									<li>
+									<li style="'.$color.'">
 										<a href="#" class="clearfix">
 											<!-- PREVIEW OF SENDER IMAGE -->
 											<figure class="image">
 												<!-- <img src="uploads/parent_image/1.jpg" height="30" class="img-box-boder" /> -->
-												<i class="fa fa-check"></i>
+												<i class="fa fa-check" style="color:white;"></i>
 											</figure>
 											<span class="title line"><strong>'.$rowsvalues['not_title'].'</strong>
-											<small>'.date("d M Y", strtotime($rowsvalues['dated'])).'</small>  </span>
-											<span class="message">'.$rowsvalues['not_description'].'</span>
+											<small>('.date("d M Y", strtotime($rowsvalues['dated'])).')</small>  </span>
+											<span style="color:black;" class="message">'.$rowsvalues['not_description'].'</span>
 										</a>
 									</li>';
 								}

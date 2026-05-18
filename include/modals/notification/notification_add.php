@@ -53,6 +53,23 @@ echo '
 					</div>
 				</div>
 				<div class="form-group">
+					<label class="col-sm-3 control-label">Info Type <span class="required">*</span></label>
+					<div class="col-md-9">
+						<div class="radio-custom radio-inline">
+							<input type="radio" id="info_type" name="info_type" value="1" checked>
+							<label for="radioExample1">Urgent</label>
+						</div>
+						<div class="radio-custom radio-inline">
+							<input type="radio" id="info_type" name="info_type" value="2">
+							<label for="radioExample2">Pending</label>
+						</div>
+						<div class="radio-custom radio-inline">
+							<input type="radio" id="info_type" name="info_type" value="3">
+							<label for="radioExample2">Info</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
 					<label class="col-sm-3 control-label">Type <span class="required">*</span></label>
 					<div class="col-md-9">
 						<div class="radio-custom radio-inline">

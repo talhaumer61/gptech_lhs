@@ -1,5 +1,7 @@
 <?php 
 echo'
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 <!-- EXPORT TO EXCEL -->
 <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 

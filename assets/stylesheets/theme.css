@@ -817,7 +817,7 @@ a:active {
 		min-height: 0;
 
 		padding-top: 0;
-
+		
 	}
 
 
@@ -13605,9 +13605,8 @@ html.header-dark .notifications > li .notification-icon i {
 	.userbox {
 
 		float: left;
-
+		padding-left: 8px;
 		margin: 16px 0 0 12px;
-
 		position: relative;
 
 	}
@@ -37095,5 +37094,81 @@ html.dark .thumbnail {
 .bg-night-dark {
 
 	background-color:#23272d !important;
+
+}
+
+/* =========================
+   FINANCE CHART
+========================= */
+
+.finance-chart-box {
+
+    background: #fff;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+
+}
+
+.finance-chart-header {
+
+    margin-bottom: 20px;
+
+}
+
+.finance-chart-header h3 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #333;
+
+}
+
+.finance-chart-header h3 i {
+
+    color: #cb3f44;
+
+    margin-right: 8px;
+
+}
+
+.finance-total {
+
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    color: #666;
+
+}
+
+#financeBarChart {
+
+    min-height: 320px;
+
+}
+
+@media(max-width:767px){
+
+    .finance-chart-box {
+
+        padding: 15px;
+
+    }
+
+    .finance-chart-header h3 {
+
+        font-size: 16px;
+
+    }
 
 }

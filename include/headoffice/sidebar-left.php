@@ -542,9 +542,9 @@ echo '
 					if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '64', 'view' => '1'))){ 
 						echo'
 						<li class=" ">
-							 <a href="monthly_assessment.php">
+							 <a href="monthly_test.php">
 								  <i class="fa fa-file-o"></i>
-								 <span>Monthly Assessment</span>
+								 <span>Monthly Test</span>
 							 </a>
 						</li>';
 					}
@@ -555,7 +555,7 @@ echo '
 					// }
 
 					if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '83', 'view' => '1'))){ 
-						echo'<li class=" "><a href="exam_paper.php"><i class="fa fa-paste" aria-hidden="true"></i><span>Assessment Papers</span></a></li>';
+						echo'<li class=" "><a href="mid_term_exam.php"><i class="fa fa-paste" aria-hidden="true"></i><span>Mid Term Exam</span></a></li>';
 					}
 					if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '84', 'view' => '1'))){ 
 						echo'<li class=" "><a href="exam_paper_delivery.php"><i class="fa fa-paper-plane" aria-hidden="true"></i><span>Papers Delivery</span></a></li>';

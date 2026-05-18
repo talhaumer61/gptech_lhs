@@ -64,7 +64,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch(
 	echo'
 	<section class="panel panel-featured panel-featured-primary">
 		<header class="panel-heading">
-			<h2 class="panel-title"><i class="fa fa-list"></i> Monthly Assessment List</h2>
+			<h2 class="panel-title"><i class="fa fa-list"></i> Monthly Test List</h2>
 		</header>
 		<div class="panel-body">
 			<form action="#" method="GET" autocomplete="off">

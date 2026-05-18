@@ -9,7 +9,7 @@
 //-----------------------------------------------
 	include_once("include/header.php");
 //-----------------------------------------------
-	include_once("include/".get_logintypes($_SESSION['userlogininfo']['LOGINAFOR'])."/monthly_assessment.php");
+	include_once("include/".get_logintypes($_SESSION['userlogininfo']['LOGINAFOR'])."/monthly_test.php");
 //-----------------------------------------------
 	include_once("include/footer.php");
 //-----------------------------------------------

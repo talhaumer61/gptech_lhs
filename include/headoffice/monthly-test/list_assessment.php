@@ -74,11 +74,11 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch(
 			if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '61', 'add' => '1'))){ 
 				echo'
 				<a href="#make_assessment" class="modal-with-move-anim btn btn-primary btn-xs pull-right">
-				<i class="fa fa-plus-square"></i> Make Monthly Assessment
+				<i class="fa fa-plus-square"></i> Make Monthly Test
 				</a>';
 			}
 			echo '
-			<h2 class="panel-title"><i class="fa fa-list"></i> Monthly Assessment List</h2>
+			<h2 class="panel-title"><i class="fa fa-list"></i> Monthly Test List</h2>
 		</header>
 		<div class="panel-body">
 			<form action="#" method="GET" autocomplete="off">

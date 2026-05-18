@@ -5,7 +5,7 @@ echo'
 	<section class="panel panel-featured panel-featured-primary">
 		<form action="monthly_assessment.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 			<header class="panel-heading">
-				<h2 class="panel-title"><i class="fa fa-plus-square"></i>  Make Monthly Assessment</h2>
+				<h2 class="panel-title"><i class="fa fa-plus-square"></i>  Make Monthly Test</h2>
 			</header>
 			<div class="panel-body">
 				<div class="form-group">

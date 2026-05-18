@@ -3,16 +3,16 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SES
 {  
 	//-----------------------------------------------
 	echo '
-	<title> Exam Panel | '.TITLE_HEADER.'</title>
+	<title> Mid Term Exam Panel | '.TITLE_HEADER.'</title>
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Exam Panel </h2>
+			<h2>Mid Term Exam Panel </h2>
 		</header>
 	<!-- INCLUDEING PAGE -->
 	<div class="row">
 	<div class="col-md-12">';
 	//-----------------------------------------------
-		include_once("exam_paper/list.php");
+		include_once("mid_term_exam/list.php");
 	//-----------------------------------------------
 	echo '
 	</div>

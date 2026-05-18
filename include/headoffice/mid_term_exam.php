@@ -2,7 +2,7 @@
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SESSION['userroles'], 'right_name', '83')))
 {  
 	//-----------------------------------------------
-		require_once("exam_paper/query.php");
+		require_once("mid_term_exam/query.php");
 	//-----------------------------------------------
 	echo '
 	<title> Exam Panel | '.TITLE_HEADER.'</title>
@@ -14,8 +14,8 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SES
 	<div class="row">
 	<div class="col-md-12">';
 	//-----------------------------------------------
-		include_once("exam_paper/list.php");
-		include_once("include/modals/exam_paper/add.php");
+		include_once("mid_term_exam/list.php");
+		include_once("include/modals/mid_term_exam/add.php");
 	//-----------------------------------------------
 	echo '
 	</div>

@@ -3,7 +3,7 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch(
 echo '
 <section class="panel panel-featured panel-featured-primary">
 <header class="panel-heading">
-	<h2 class="panel-title"><i class="fa fa-list"></i> Assessment Question Papers List</h2>
+	<h2 class="panel-title"><i class="fa fa-list"></i> Mid Term Exam List</h2>
 </header>
 <div class="panel-body">
 <table class="table table-bordered table-striped table-condensed mb-none" id = "table_export">

@@ -23,7 +23,7 @@ echo '
 			<form action="exam_paper.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 			<input type="hidden" name="exam_id" id="exam_id" value="'.cleanvars($_GET['id']).'">
 				<header class="panel-heading">
-					<h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Edit Question Paper</h2>
+					<h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Edit Mid Term Exam Paper</h2>
 				</header>
 					<div class="panel-body">
 						<div class="form-group">

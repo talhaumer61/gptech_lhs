@@ -3,16 +3,16 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SES
 {
 //-----------------------------------------------
 echo '
-<title> Assessment Panel | '.TITLE_HEADER.'</title>
+<title> Test Panel | '.TITLE_HEADER.'</title>
 <section role="main" class="content-body">
 	<header class="page-header">
-		<h2>Assessment Panel </h2>
+		<h2>Test Panel </h2>
 	</header>
 <!-- INCLUDEING PAGE -->
 <div class="row">
 <div class="col-md-12">';
 //-----------------------------------------------
-	include_once("monthly-assessment/list_assessment.php");
+	include_once("monthly-test/list_assessment.php");
 //-----------------------------------------------
 echo '
 </div>

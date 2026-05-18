@@ -6,7 +6,7 @@ echo '
 	<section class="panel panel-featured panel-featured-primary">
 		<form action="exam_paper.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 			<header class="panel-heading">
-				<h2 class="panel-title"><i class="fa fa-plus-square"></i>  Make Exam Question Paper</h2>
+				<h2 class="panel-title"><i class="fa fa-plus-square"></i>  Make Mid Term Exam Question Paper</h2>
 			</header>
 			<div class="panel-body">
 				

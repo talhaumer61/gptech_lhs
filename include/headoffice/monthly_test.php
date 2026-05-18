@@ -1,16 +1,16 @@
 <?php 
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SESSION['userroles'], 'right_name', '61'))){
-	require_once("monthly-assessment/query_assessment.php");
+	require_once("monthly-test/query_assessment.php");
 	echo '
-	<title> Assessment Panel | '.TITLE_HEADER.'</title>
+	<title> Test Panel | '.TITLE_HEADER.'</title>
 	<section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Assessment Panel </h2>
+			<h2>Test Panel </h2>
 		</header>
 		<div class="row">
 			<div class="col-md-12">';
-				include_once("monthly-assessment/list_assessment.php");
-				include_once("include/modals/monthly-assessment/modal_assessment_add.php");
+				include_once("monthly-test/list_assessment.php");
+				include_once("include/modals/monthly-test/modal_assessment_add.php");
 				echo'
 			</div>
 		</div>

@@ -237,6 +237,15 @@ echo '
 							</a>
 						</li>';
 					}
+					if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '60', 'view' => '1'))){ 
+						echo'
+						<li class=" ">
+							<a href="syllabus_worksheet.php">
+								<i class="fa fa-file-o"></i>
+								<span>Syllabus Worksheet</span>
+							</a>
+						</li>';
+					}
 					// <!-- SUMMER WORK -->
 					if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '62', 'view' => '1'))){ 
 						echo'

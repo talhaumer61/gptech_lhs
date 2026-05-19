@@ -4,9 +4,9 @@ echo '
 <!-- Add Modal Box -->
 <div id="make_worksheet" class="zoom-anim-dialog modal-block modal-block-primary mfp-hide">
 	<section class="panel panel-featured panel-featured-primary">
-		<form action="syllabus_worksheet.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+		<form action="daily_syllabus_breakup.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 			<header class="panel-heading">
-				<h2 class="panel-title"><i class="fa fa-plus-square"></i>  Make Work Sheet</h2>
+				<h2 class="panel-title"><i class="fa fa-plus-square"></i>  Make Daily Syllabus Breakup</h2>
 			</header>
 			<div class="panel-body">
 				

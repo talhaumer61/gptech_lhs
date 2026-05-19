@@ -231,9 +231,9 @@ echo '
 					if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '60', 'view' => '1'))){ 
 						echo'
 						<li class=" ">
-							<a href="syllabus_worksheet.php">
+							<a href="daily_syllabus_breakup.php">
 								<i class="fa fa-file-o"></i>
-								<span>Syllabus Work Sheet</span>
+								<span>Daily Syllabus Breakup</span>
 							</a>
 						</li>';
 					}

@@ -9,7 +9,7 @@
 //-----------------------------------------------
 	include_once("include/header.php");
 //-----------------------------------------------
-	include_once("include/".get_logintypes($_SESSION['userlogininfo']['LOGINAFOR'])."/syllabus_worksheet.php");
+	include_once("include/".get_logintypes($_SESSION['userlogininfo']['LOGINAFOR'])."/daily_syllabus_breakup.php");
 //-----------------------------------------------
 	include_once("include/footer.php");
 //-----------------------------------------------

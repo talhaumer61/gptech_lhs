@@ -7,7 +7,7 @@ if(isset($_POST['id_month'])){$month_id = $_POST['id_month'];}else{$month_id = "
 //---------------------------------------
 echo'
 <section class="panel panel-featured panel-featured-primary">
-	<form action="syllabus_worksheet.php" class="mb-lg validate" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+	<form action="daily_syllabus_breakup.php" class="mb-lg validate" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 		<header class="panel-heading">
 			<h2 class="panel-title"><i class="fa fa-list"></i>  Select Options</h2>
 		</header>
@@ -66,11 +66,11 @@ echo'
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '60', 'add' => '1'))){ 
 	echo'
 	<a href="#make_worksheet" class="modal-with-move-anim btn btn-primary btn-xs pull-right">
-	<i class="fa fa-plus-square"></i> Make Work Sheet
+	<i class="fa fa-plus-square"></i> Make Syllabus Breakup
 	</a>';
 }
 echo '
-	<h2 class="panel-title"><i class="fa fa-list"></i>  Work Sheet List</h2>
+	<h2 class="panel-title"><i class="fa fa-list"></i>  Daily Syllabus Breakup List</h2>
 </header>
 <div class="panel-body">
 <table class="table table-bordered table-striped table-condensed mb-none" id = "table_export">

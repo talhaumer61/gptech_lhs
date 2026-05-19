@@ -27,10 +27,10 @@ echo '
 <div class="row">
 <div class="col-md-12">
 <section class="panel panel-featured panel-featured-primary">
-	<form action="syllabus_worksheet.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+	<form action="daily_syllabus_breakup.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 	<input type="hidden" name="syllabus_id" id="syllabus_id" value="'.cleanvars($_GET['id']).'">
 		<header class="panel-heading">
-			<h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Edit Work Sheet</h2>
+			<h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Edit Daily Syllabus Breakup</h2>
 		</header>
 		<div class="panel-body">
 			<div class="form-group">

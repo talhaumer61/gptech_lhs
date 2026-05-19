@@ -2,20 +2,20 @@
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SESSION['userroles'], 'right_name', '60')))
 {
 			//-----------------------------------------------
-				require_once("syllabus-worksheet/query_worksheet.php");
+				require_once("daily_syllabus_breakup/query_worksheet.php");
 			//-----------------------------------------------
 			echo '
-			<title> Work Sheet Panel | '.TITLE_HEADER.'</title>
+			<title> Daily Syllabus Breakup | '.TITLE_HEADER.'</title>
 			<section role="main" class="content-body">
 				<header class="page-header">
-					<h2>Work Sheet Panel </h2>
+					<h2>Daily Syllabus Breakup </h2>
 				</header>
 			<!-- INCLUDEING PAGE -->
 			<div class="row">
 			<div class="col-md-12">';
 			//-----------------------------------------------
-				include_once("syllabus-worksheet/list_worksheet.php");
-				include_once("include/modals/syllabus-worksheet/modal_worksheet_add.php");
+				include_once("daily_syllabus_breakup/list_worksheet.php");
+				include_once("include/modals/daily_syllabus_breakup/modal_worksheet_add.php");
 			//-----------------------------------------------
 	echo '
 	</div>

@@ -7,7 +7,7 @@ if(isset($_POST['id_month'])){$month_id = $_POST['id_month'];}else{$month_id = "
 //---------------------------------------
 echo'
 <section class="panel panel-featured panel-featured-primary">
-	<form action="syllabus_worksheet.php" class="mb-lg validate" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+	<form action="daily_syllabus_breakup.php" class="mb-lg validate" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 		<header class="panel-heading">
 			<h2 class="panel-title"><i class="fa fa-list"></i>  Select Options</h2>
 		</header>
@@ -63,7 +63,7 @@ echo'
 
 <section class="panel panel-featured panel-featured-primary">
 <header class="panel-heading">
-	<h2 class="panel-title"><i class="fa fa-list"></i>  Work Sheet List</h2>
+	<h2 class="panel-title"><i class="fa fa-list"></i>  Daily Syllabus Breakup List</h2>
 </header>
 <div class="panel-body">
 <table class="table table-bordered table-striped table-condensed mb-none" id = "table_export">

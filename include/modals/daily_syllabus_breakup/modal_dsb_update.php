@@ -9,16 +9,16 @@
 //---------------------------------------------------------
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || Stdlib_Array::multiSearch($_SESSION['userroles'], array('right_name' => '60', 'updated' => '1'))){ 
 //---------------------------------------------------------
-	$sqllms	= $dblms->querylms("SELECT  s.syllabus_id, s.syllabus_status, s.syllabus_term, s.id_session,
-								   s.syllabus_file, s.id_month, s.id_week, s.id_class, s.id_subject, s.note,
+	$sqllms	= $dblms->querylms("SELECT  s.dsb_id, s.dsb_status, s.dsb_term, s.id_session,
+								   s.dsb_file, s.id_month, s.id_week, s.id_class, s.id_subject, s.note,
 								   se.session_id, se.session_name,
 								   c.class_id, c.class_name,
 								   cs.subject_id, cs.subject_name
-								   FROM ".SYLLABUS." s  
+								   FROM ".DAILY_SYLLABUS_BREAKUP." s  
 								   INNER JOIN ".SESSIONS." se ON se.session_id = s.id_session
 								   INNER JOIN ".CLASSES." c ON c.class_id = s.id_class
 								   INNER JOIN ".CLASS_SUBJECTS." cs ON cs.subject_id = s.id_subject
-								   WHERE s.syllabus_id = '".cleanvars($_GET['id'])."' AND s.syllabus_type = '3' LIMIT 1");
+								   WHERE s.dsb_id = '".cleanvars($_GET['id'])."' AND s.dsb_type = '3' LIMIT 1");
 	$rowsvalues = mysqli_fetch_array($sqllms);
 //---------------------------------------------------------
 echo '
@@ -26,9 +26,9 @@ echo '
 <script src="assets/javascripts/theme.init.js"></script>
 <div class="row">
 <div class="col-md-12">
-<section class="panel panel-featured panel-featured-primary">
+section class="panel panel-featured panel-featured-primary">
 	<form action="daily_syllabus_breakup.php" class="form-horizontal" id="form" enctype="multipart/form-data" method="post" accept-charset="utf-8">
-	<input type="hidden" name="syllabus_id" id="syllabus_id" value="'.cleanvars($_GET['id']).'">
+	<input type="hidden" name="dsb_id" id="dsb_id" value="'.cleanvars($_GET['id']).'">
 		<header class="panel-heading">
 			<h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Edit Daily Syllabus Breakup</h2>
 		</header>
@@ -56,10 +56,10 @@ echo '
 				<div class="form-group">
 					<label class="col-md-3 control-label">Term <span class="required">*</span></label>
 					<div class="col-md-9">
-						<select class="form-control" required data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" required title="Must Be Required" name="syllabus_term">
+						<select class="form-control" required data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" required title="Must Be Required" name="dsb_term">
 							<option value="">Select</option>
-							<option value="1"'; if($rowsvalues['syllabus_term'] == 1){echo ' selected';} echo '>First Term</option>
-							<option value="2"'; if($rowsvalues['syllabus_term'] == 2){echo ' selected';} echo '>Second Term</option>
+							<option value="1"'; if($rowsvalues['dsb_term'] == 1){echo ' selected';} echo '>First Term</option>
+							<option value="2"'; if($rowsvalues['dsb_term'] == 2){echo ' selected';} echo '>Second Term</option>
 						</select>
 					</div>
 				</div>
@@ -120,7 +120,7 @@ echo '
 			<div class="form-group">
 				<label class="col-md-3 control-label">File <span class="required">*</span></label>
 				<div class="col-md-9">
-					<input type="file" class="form-control" name="syllabus_file" id="syllabus_file" value="'.$rowsvalues['syllabus_file'].'"/>
+					<input type="file" class="form-control" name="dsb_file" id="dsb_file" value="'.$rowsvalues['dsb_file'].'"/>
 				</div>
 			</div>
 			<div class="form-group mb-md">
@@ -132,29 +132,29 @@ echo '
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Status <span class="required">*</span></label>
 				<div class="col-md-9">';
-					if($rowsvalues['syllabus_status'] == 1) { 
+					if($rowsvalues['dsb_status'] == 1) { 
 						echo '
 							<div class="radio-custom radio-inline">
-								<input type="radio" id="syllabus_status" name="syllabus_status" value="1" checked>
+								<input type="radio" id="dsb_status" name="dsb_status" value="1" checked>
 								<label for="radioExample1">Active</label>
 							</div>';
 					} else { 
 						echo '
 							<div class="radio-custom radio-inline">
-								<input type="radio" id="syllabus_status" name="syllabus_status" value="1">
+								<input type="radio" id="dsb_status" name="dsb_status" value="1">
 								<label for="radioExample1">Active</label>
 							</div>';
 					}
-					if($rowsvalues['syllabus_status'] == 2) { 
+					if($rowsvalues['dsb_status'] == 2) { 
 						echo '
 							<div class="radio-custom radio-inline">
-								<input type="radio" id="syllabus_status" name="syllabus_status" checked value="2">
+								<input type="radio" id="dsb_status" name="dsb_status" checked value="2">
 								<label for="radioExample2">Inactive</label>
 							</div>';
 					} else { 
 						echo '
 							<div class="radio-custom radio-inline">
-								<input type="radio" id="syllabus_status" name="syllabus_status" value="2">
+								<input type="radio" id="dsb_status" name="dsb_status" value="2">
 								<label for="radioExample2">Inactive</label>
 							</div>';
 					}

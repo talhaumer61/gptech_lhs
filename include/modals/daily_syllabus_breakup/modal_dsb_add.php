@@ -29,7 +29,7 @@ echo '
 				<div class="form-group">
 					<label class="col-md-3 control-label">Term <span class="required">*</span></label>
 					<div class="col-md-9">
-						<select class="form-control" required data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" required title="Must Be Required" name="syllabus_term">
+						<select class="form-control" required data-plugin-selectTwo data-width="100%" data-minimum-results-for-search="Infinity" required title="Must Be Required" name="dsb_term">
 							<option value="">Select</option>
 							<option value="1">First Term</option>
 							<option value="2">Second Term</option>
@@ -85,7 +85,7 @@ echo '
 			<div class="form-group">
 				<label class="col-md-3 control-label">File <span class="required">*</span></label>
 				<div class="col-md-9">
-					<input type="file" class="form-control" name="syllabus_file" id="syllabus_file" required title="Must Be Required"/>
+					<input type="file" class="form-control" name="dsb_file" id="dsb_file" required title="Must Be Required"/>
 				</div>
 			</div>
 			<div class="form-group mb-md">
@@ -98,11 +98,11 @@ echo '
 				<label class="col-sm-3 control-label">Status <span class="required">*</span></label>
 				<div class="col-md-9">
 					<div class="radio-custom radio-inline">
-						<input type="radio" id="syllabus_status" name="syllabus_status" value="1" checked>
+						<input type="radio" id="dsb_status" name="dsb_status" value="1" checked>
 						<label for="radioExample1">Active</label>
 					</div>
 					<div class="radio-custom radio-inline">
-						<input type="radio" id="syllabus_status" name="syllabus_status" value="2">
+						<input type="radio" id="dsb_status" name="dsb_status" value="2">
 						<label for="radioExample2">Inactive</label>
 					</div>
 				</div>

@@ -2,7 +2,7 @@
 if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SESSION['userroles'], 'right_name', '60')))
 {
 			//-----------------------------------------------
-				require_once("daily_syllabus_breakup/query_worksheet.php");
+				require_once("daily_syllabus_breakup/query_dsb.php");
 			//-----------------------------------------------
 			echo '
 			<title> Daily Syllabus Breakup | '.TITLE_HEADER.'</title>
@@ -14,8 +14,8 @@ if(($_SESSION['userlogininfo']['LOGINTYPE']  == 1) || (arrayKeyValueSearch($_SES
 			<div class="row">
 			<div class="col-md-12">';
 			//-----------------------------------------------
-				include_once("daily_syllabus_breakup/list_worksheet.php");
-				include_once("include/modals/daily_syllabus_breakup/modal_worksheet_add.php");
+				include_once("daily_syllabus_breakup/list_dsb.php");
+				include_once("include/modals/daily_syllabus_breakup/modal_dsb_add.php");
 			//-----------------------------------------------
 	echo '
 	</div>

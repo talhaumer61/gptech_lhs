@@ -12,7 +12,7 @@ echo '
 <div class="row">
 <div class="col-md-12">';
 //-----------------------------------------------
-	include_once("daily_syllabus_breakup/list_worksheet.php");
+	include_once("daily_syllabus_breakup/list_dsb.php");
 //-----------------------------------------------
 echo '
 </div>

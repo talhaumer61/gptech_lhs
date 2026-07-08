@@ -147,6 +147,7 @@
 	define('FEEDBACK'					, 'sms_feedback');
 	define('EXAM_REGISTRATION'			, 'sms_exam_registration');
 	define('EXAM_REGISTRATION_DETAIL'	, 'sms_exam_registration_detail');
+	define('DAILY_SYLLABUS_BREAKUP'		, 'sms_daily_syllabus_breakup');
 	
 //--------------------------------------------------
 	$ip	  	= (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] != '') ? $_SERVER['REMOTE_ADDR'] : '';

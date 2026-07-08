@@ -93,27 +93,27 @@ else{
 	$sql2 = "";
 }
 //------------------------------------------
-$sqllms	= $dblms->querylms("SELECT s.syllabus_id, s.syllabus_status, s.syllabus_term, s.id_session,
-								   s.syllabus_file, s.id_month, s.id_week, s.id_class, s.id_subject, s.note,
+$sqllms	= $dblms->querylms("SELECT s.dsb_id, s.dsb_status, s.dsb_term, s.id_session,
+								   s.dsb_file, s.id_month, s.id_week, s.id_class, s.id_subject, s.note,
 								   se.session_id, se.session_status, se.session_name,
 								   c.class_id, c.class_status, c.class_name,
 								   cs.subject_id, cs.subject_status, cs.subject_name
-								   FROM ".SYLLABUS." s 
+								   FROM ".DAILY_SYLLABUS_BREAKUP." s 
 								   INNER JOIN ".SESSIONS." se ON se.session_id = s.id_session
 								   INNER JOIN ".CLASSES." c ON c.class_id = s.id_class
 								   INNER JOIN ".CLASS_SUBJECTS." cs ON cs.subject_id = s.id_subject
-								   WHERE s.syllabus_status = '1' AND s.is_deleted != '1' 
-								   AND s.syllabus_type = '3' $sql2
+								   WHERE s.dsb_status = '1' AND s.is_deleted != '1' 
+								   AND s.dsb_type = '3' $sql2
 								   AND s.id_session = '".cleanvars($_SESSION['userlogininfo']['ACADEMICSESSION'])."'
-								   ORDER BY s.syllabus_id DESC");
+								   ORDER BY s.dsb_id DESC");
 $srno = 0;
 //-----------------------------------------------------
 while($rowsvalues = mysqli_fetch_array($sqllms)) {
 //-----------------------------------------------------
-if($rowsvalues['syllabus_term'] == 1){
+if($rowsvalues['dsb_term'] == 1){
 	$term = 'First';
 }
-elseif($rowsvalues['syllabus_term'] == 2){
+elseif($rowsvalues['dsb_term'] == 2){
 	$term = 'Second';
 }
 $srno++;
@@ -128,8 +128,8 @@ echo '
 	<td>'.get_monthtypes($rowsvalues['id_month']).'</td>
 	<td>'.$rowsvalues['note'].'</td>
 	<td style="text-align:center;">
-		<a href="uploads/worksheet/'.$rowsvalues['syllabus_file'].'" download="'.$rowsvalues['session_name'].'-'.get_monthtypes($rowsvalues['id_month']).'-'.$rowsvalues['class_name'].'-'.$rowsvalues['subject_name'].'" class="btn btn-success btn-xs");"><i class="glyphicon glyphicon-download"></i></a>
-		<a href="uploads/worksheet/'.$rowsvalues['syllabus_file'].'" class="btn btn-info btn-xs");" target="_blank"><i class="glyphicon glyphicon-eye-open"></i> </a>
+		<a href="uploads/worksheet/'.$rowsvalues['dsb_file'].'" download="'.$rowsvalues['session_name'].'-'.get_monthtypes($rowsvalues['id_month']).'-'.$rowsvalues['class_name'].'-'.$rowsvalues['subject_name'].'" class="btn btn-success btn-xs");"><i class="glyphicon glyphicon-download"></i></a>
+		<a href="uploads/worksheet/'.$rowsvalues['dsb_file'].'" class="btn btn-info btn-xs");" target="_blank"><i class="glyphicon glyphicon-eye-open"></i> </a>
 	</td>
 	
 	</tr>';
